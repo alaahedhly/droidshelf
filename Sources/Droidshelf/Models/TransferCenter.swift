@@ -1,5 +1,5 @@
 import AppKit
-import DropoCore
+import DroidshelfCore
 import Observation
 
 @MainActor @Observable
@@ -83,9 +83,9 @@ final class TransferCenter {
             transfer.state = .finished
             if let urls = result as? [URL] { transfer.results = urls }
             return result
-        } catch DropoError.cancelled {
+        } catch DroidshelfError.cancelled {
             transfer.state = .cancelled
-            throw DropoError.cancelled
+            throw DroidshelfError.cancelled
         } catch {
             transfer.state = .failed(error.localizedDescription)
             throw error

@@ -1,5 +1,5 @@
 import AppKit
-import DropoCore
+import DroidshelfCore
 import SwiftUI
 
 /// Finder icon for an item, upgraded to the phone's own thumbnail for photos and videos.

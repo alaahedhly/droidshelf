@@ -1,6 +1,6 @@
 import Foundation
 
-/// Works out which byte ranges of a phone file Quick Look needs to draw a preview, so Dropo can fetch a few hundred KB
+/// Works out which byte ranges of a phone file Quick Look needs to draw a preview, so Droidshelf can fetch a few hundred KB
 /// over MTP instead of the whole file. The ranges are written into a sparse local stand-in file of the full size.
 public enum PreviewPlanner {
     public struct Range: Equatable, Sendable {

@@ -86,7 +86,7 @@ public struct Item: Identifiable, Hashable, Sendable {
     public var fileExtension: String { (name as NSString).pathExtension.lowercased() }
 }
 
-public enum DropoError: LocalizedError, Sendable {
+public enum DroidshelfError: LocalizedError, Sendable {
     case notConnected
     case cannotOpen(String)
     case operationFailed(String)
@@ -96,7 +96,7 @@ public enum DropoError: LocalizedError, Sendable {
     public var errorDescription: String? {
         switch self {
         case .notConnected: "The phone is no longer connected."
-        case .cannotOpen(let why): "Dropo couldn't open the phone. \(why)"
+        case .cannotOpen(let why): "Droidshelf couldn't open the phone. \(why)"
         case .operationFailed(let why): why
         case .cancelled: "The operation was cancelled."
         case .readOnly: "This storage is read-only."

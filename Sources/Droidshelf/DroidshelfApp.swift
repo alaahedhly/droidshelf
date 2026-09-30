@@ -2,18 +2,18 @@ import AppKit
 import SwiftUI
 
 @main
-struct DropoApp: App {
+struct DroidshelfApp: App {
     @NSApplicationDelegateAdaptor private var delegate: AppDelegate
     @State private var app = AppModel()
 
     var body: some Scene {
-        WindowGroup("Dropo", id: "browser") {
+        WindowGroup("Droidshelf", id: "browser") {
             BrowserWindow(app: app)
                 .frame(minWidth: 720, minHeight: 420)
         }
         .defaultSize(width: 1000, height: 620)
         .windowToolbarStyle(.unified)
-        .commands { DropoCommands(app: app) }
+        .commands { DroidshelfCommands(app: app) }
 
         Settings {
             SettingsView()
@@ -54,7 +54,7 @@ extension FocusedValues {
 }
 
 /// Finder's menu layout and shortcuts, so muscle memory carries over.
-struct DropoCommands: Commands {
+struct DroidshelfCommands: Commands {
     let app: AppModel
     @FocusedValue(\.browser) private var browser
     @AppStorage("viewMode") private var viewMode: ViewMode = .list

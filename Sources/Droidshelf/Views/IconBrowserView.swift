@@ -1,5 +1,5 @@
 import AppKit
-import DropoCore
+import DroidshelfCore
 import SwiftUI
 
 struct IconBrowserView: View {

@@ -1,5 +1,5 @@
 import AppKit
-import DropoCore
+import DroidshelfCore
 import Observation
 
 /// One phone that is open and browsable. Listings are cached here so every window and column view shares them.
@@ -183,7 +183,7 @@ final class AppModel {
     private static func demoRoot() -> URL? {
         let arguments = CommandLine.arguments
         guard let index = arguments.firstIndex(of: "--demo") else { return nil }
-        let path = arguments.indices.contains(index + 1) ? arguments[index + 1] : NSTemporaryDirectory() + "DropoDemo"
+        let path = arguments.indices.contains(index + 1) ? arguments[index + 1] : NSTemporaryDirectory() + "DroidshelfDemo"
         let url = URL(fileURLWithPath: (path as NSString).expandingTildeInPath)
         try? FileManager.default.createDirectory(at: url, withIntermediateDirectories: true)
         return url

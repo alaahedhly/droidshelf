@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Builds dist/Dropo.app: release binary + bundled libmtp/libusb (dynamically linked, keeps LGPL relinkable) + icon.
+# Builds dist/Droidshelf.app: release binary + bundled libmtp/libusb (dynamically linked, keeps LGPL relinkable) + icon.
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
 ROOT=$(pwd)
-APP="$ROOT/dist/Dropo.app"
+APP="$ROOT/dist/Droidshelf.app"
 VERSION="${VERSION:-1.0.0}"
 
 # The macOS 27 SDK turns @State into a macro whose plugin ships only with Xcode; the 26.5 SDK in the Command Line
@@ -14,11 +14,11 @@ if [[ "$(xcode-select -p)" == /Library/Developer/CommandLineTools ]] && [[ -d /L
 fi
 
 swift build -c release --arch arm64
-BIN="$(swift build -c release --arch arm64 --show-bin-path)/Dropo"
+BIN="$(swift build -c release --arch arm64 --show-bin-path)/Droidshelf"
 
 rm -rf "$APP"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Frameworks" "$APP/Contents/Resources"
-cp "$BIN" "$APP/Contents/MacOS/Dropo"
+cp "$BIN" "$APP/Contents/MacOS/Droidshelf"
 cp Resources/AppIcon.icns Resources/AppIcon-Dark.icns "$APP/Contents/Resources/"
 
 LIBMTP=$(brew --prefix libmtp)/lib/libmtp.9.dylib
@@ -33,8 +33,8 @@ for ref in $(otool -L "$APP/Contents/Frameworks/libmtp.9.dylib" | awk '/libusb/ 
   install_name_tool -change "$ref" @rpath/libusb-1.0.0.dylib "$APP/Contents/Frameworks/libmtp.9.dylib"
 done
 install_name_tool -add_rpath @loader_path "$APP/Contents/Frameworks/libmtp.9.dylib" 2>/dev/null || true
-for ref in $(otool -L "$APP/Contents/MacOS/Dropo" | awk '/libmtp/ {print $1}'); do
-  install_name_tool -change "$ref" @rpath/libmtp.9.dylib "$APP/Contents/MacOS/Dropo"
+for ref in $(otool -L "$APP/Contents/MacOS/Droidshelf" | awk '/libmtp/ {print $1}'); do
+  install_name_tool -change "$ref" @rpath/libmtp.9.dylib "$APP/Contents/MacOS/Droidshelf"
 done
 
 cat > "$APP/Contents/Info.plist" <<PLIST
@@ -42,10 +42,10 @@ cat > "$APP/Contents/Info.plist" <<PLIST
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-  <key>CFBundleName</key><string>Dropo</string>
-  <key>CFBundleDisplayName</key><string>Dropo</string>
-  <key>CFBundleIdentifier</key><string>com.hortensia.dropo</string>
-  <key>CFBundleExecutable</key><string>Dropo</string>
+  <key>CFBundleName</key><string>Droidshelf</string>
+  <key>CFBundleDisplayName</key><string>Droidshelf</string>
+  <key>CFBundleIdentifier</key><string>io.github.alaahedhly.droidshelf</string>
+  <key>CFBundleExecutable</key><string>Droidshelf</string>
   <key>CFBundleIconFile</key><string>AppIcon</string>
   <key>CFBundlePackageType</key><string>APPL</string>
   <key>CFBundleShortVersionString</key><string>$VERSION</string>

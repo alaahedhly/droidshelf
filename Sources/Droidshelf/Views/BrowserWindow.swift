@@ -1,4 +1,4 @@
-import DropoCore
+import DroidshelfCore
 import QuickLook
 import SwiftUI
 
@@ -64,7 +64,7 @@ struct BrowserWindow: View {
         } message: {
             Text(browser.pendingConflict?.message ?? "")
         }
-        .alert("Dropo", isPresented: isPresent(\.alertMessage)) {
+        .alert("Droidshelf", isPresented: isPresent(\.alertMessage)) {
             Button("OK", role: .cancel) {}
         } message: {
             Text(browser.alertMessage ?? "")

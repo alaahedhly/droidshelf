@@ -1,6 +1,6 @@
 import Foundation
 import Testing
-@testable import DropoCore
+@testable import DroidshelfCore
 
 @Suite struct NamingTests {
     @Test func keepsFreeName() {
@@ -24,7 +24,7 @@ import Testing
 
 @Suite struct TransferEngineTests {
     private func makeDemo() throws -> (DemoDevice, URL) {
-        let root = FileManager.default.temporaryDirectory.appendingPathComponent("dropo-tests-\(UUID().uuidString)")
+        let root = FileManager.default.temporaryDirectory.appendingPathComponent("droidshelf-tests-\(UUID().uuidString)")
         try FileManager.default.createDirectory(at: root.appendingPathComponent("DCIM/Camera"), withIntermediateDirectories: true)
         try Data(repeating: 7, count: 3_000_000).write(to: root.appendingPathComponent("DCIM/Camera/IMG_0001.jpg"))
         try Data("hello".utf8).write(to: root.appendingPathComponent("note.txt"))
@@ -33,7 +33,7 @@ import Testing
 
     @Test func downloadsFoldersRecursivelyWithUniqueNames() async throws {
         let (device, _) = try makeDemo()
-        let target = FileManager.default.temporaryDirectory.appendingPathComponent("dropo-out-\(UUID().uuidString)")
+        let target = FileManager.default.temporaryDirectory.appendingPathComponent("droidshelf-out-\(UUID().uuidString)")
         try FileManager.default.createDirectory(at: target, withIntermediateDirectories: true)
         try Data().write(to: target.appendingPathComponent("note.txt"))
 
@@ -49,7 +49,7 @@ import Testing
 
     @Test func uploadsFolderTree() async throws {
         let (device, root) = try makeDemo()
-        let source = FileManager.default.temporaryDirectory.appendingPathComponent("dropo-src-\(UUID().uuidString)")
+        let source = FileManager.default.temporaryDirectory.appendingPathComponent("droidshelf-src-\(UUID().uuidString)")
         try FileManager.default.createDirectory(at: source.appendingPathComponent("inner"), withIntermediateDirectories: true)
         try Data("x".utf8).write(to: source.appendingPathComponent("inner/a.txt"))
 
@@ -63,12 +63,12 @@ import Testing
     @Test func cancellationStopsTransfer() async throws {
         let (device, _) = try makeDemo()
         let camera = try await device.contents(of: .root(0x0001_0001)).first { $0.name == "DCIM" }!
-        let target = FileManager.default.temporaryDirectory.appendingPathComponent("dropo-cancel-\(UUID().uuidString)")
+        let target = FileManager.default.temporaryDirectory.appendingPathComponent("droidshelf-cancel-\(UUID().uuidString)")
         try FileManager.default.createDirectory(at: target, withIntermediateDirectories: true)
 
         let progress = BatchProgress { _, _ in }
         progress.cancel()
-        await #expect(throws: DropoError.self) {
+        await #expect(throws: DroidshelfError.self) {
             _ = try await TransferEngine.download([camera], from: device, into: target, progress: progress)
         }
     }

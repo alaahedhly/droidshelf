@@ -150,7 +150,7 @@ struct SettingsView: View {
             } header: {
                 Text("Connection")
             } footer: {
-                Text("macOS grabs every phone that’s plugged in for photo import, which blocks file transfer. Dropo stops that when it connects.")
+                Text("macOS grabs every phone that’s plugged in for photo import, which blocks file transfer. Droidshelf stops that when it connects.")
                     .foregroundStyle(.secondary)
             }
         }

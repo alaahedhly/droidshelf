@@ -1,8 +1,8 @@
 import Foundation
 
-/// A fake phone backed by a local folder, for working on the UI without hardware (`Dropo --demo <folder>`).
+/// A fake phone backed by a local folder, for working on the UI without hardware (`Droidshelf --demo <folder>`).
 public final class DemoDevice: DeviceBackend, @unchecked Sendable {
-    public let info = DeviceInfo(manufacturer: "Dropo", model: "Demo Phone", friendlyName: nil, serial: "demo", batteryPercent: 82)
+    public let info = DeviceInfo(manufacturer: "Droidshelf", model: "Demo Phone", friendlyName: nil, serial: "demo", batteryPercent: 82)
 
     private static let storageID: UInt32 = 0x0001_0001
     private let root: URL
@@ -88,7 +88,7 @@ public final class DemoDevice: DeviceBackend, @unchecked Sendable {
     private func url(for id: UInt32) throws -> URL {
         lock.lock()
         defer { lock.unlock() }
-        guard let url = urlsByID[id] else { throw DropoError.operationFailed("That item no longer exists.") }
+        guard let url = urlsByID[id] else { throw DroidshelfError.operationFailed("That item no longer exists.") }
         return url
     }
 
@@ -140,7 +140,7 @@ public final class DemoDevice: DeviceBackend, @unchecked Sendable {
             try await Task.sleep(for: .milliseconds(25))
             if !progress(done, total) {
                 try? FileManager.default.removeItem(at: destination)
-                throw DropoError.cancelled
+                throw DroidshelfError.cancelled
             }
         }
     }

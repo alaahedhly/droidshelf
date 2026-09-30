@@ -1,5 +1,5 @@
 import AppKit
-import DropoCore
+import DroidshelfCore
 import Observation
 import UniformTypeIdentifiers
 
@@ -94,10 +94,10 @@ final class BrowserModel {
     var storage: Storage? { location.flatMap { device?.storage($0.storageID) } }
 
     var title: String {
-        guard let location else { return "Dropo" }
+        guard let location else { return "Droidshelf" }
         if let folder = location.path.last { return folder.name }
         if let device, device.storages.count == 1 { return device.info.displayName }
-        return storage?.name ?? "Dropo"
+        return storage?.name ?? "Droidshelf"
     }
 
     var visibleItems: [Item] {
@@ -252,7 +252,7 @@ final class BrowserModel {
     private func localCopies(of files: [Item], title: String) async throws -> [URL] {
         guard let device else { return [] }
         let cacheRoot = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent("com.hortensia.dropo/\(device.info.serial)")
+            .appendingPathComponent("io.github.alaahedhly.droidshelf/\(device.info.serial)")
         var urls: [URL] = []
         var missing: [(Item, URL)] = []
         for file in files {
@@ -293,7 +293,7 @@ final class BrowserModel {
                 try await app.transfers.run(title, direction: .toMac) { progress in
                     try await TransferEngine.download(items, from: device.backend, into: destination, progress: progress)
                 }
-            } catch DropoError.cancelled {
+            } catch DroidshelfError.cancelled {
             } catch {
                 alertMessage = error.localizedDescription
             }
@@ -302,8 +302,8 @@ final class BrowserModel {
 
     /// Called by Finder when a dragged phone file is dropped; materialises it in a temporary folder.
     func exportForDrag(_ item: Item) async throws -> URL {
-        guard let device else { throw DropoError.notConnected }
-        let folder = FileManager.default.temporaryDirectory.appendingPathComponent("DropoDrag-\(UUID().uuidString)")
+        guard let device else { throw DroidshelfError.notConnected }
+        let folder = FileManager.default.temporaryDirectory.appendingPathComponent("DroidshelfDrag-\(UUID().uuidString)")
         try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
         let urls = try await app.transfers.run("Copying “\(item.name)”", direction: .toMac) { progress in
             try await TransferEngine.download([item], from: device.backend, into: folder, progress: progress)
@@ -333,7 +333,7 @@ final class BrowserModel {
     func upload(_ sources: [URL], into target: FolderRef? = nil) {
         guard let device, let target = target ?? location?.folder else { return }
         guard device.storage(target.storageID)?.isWritable ?? false else {
-            alertMessage = DropoError.readOnly.localizedDescription
+            alertMessage = DroidshelfError.readOnly.localizedDescription
             return
         }
         Task {
@@ -383,7 +383,7 @@ final class BrowserModel {
                 try await app.transfers.run(title, direction: .toPhone) { progress in
                     try await TransferEngine.upload(uploads, to: device.backend, into: target, progress: progress)
                 }
-            } catch DropoError.cancelled {
+            } catch DroidshelfError.cancelled {
             } catch {
                 alertMessage = error.localizedDescription
             }

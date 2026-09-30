@@ -1,4 +1,4 @@
-import DropoCore
+import DroidshelfCore
 import SwiftUI
 
 /// Finder's column view: one column per folder along the current path, plus a preview of a selected file.

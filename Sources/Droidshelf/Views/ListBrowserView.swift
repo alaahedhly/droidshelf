@@ -1,4 +1,4 @@
-import DropoCore
+import DroidshelfCore
 import SwiftUI
 
 struct ListBrowserView: View {

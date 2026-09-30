@@ -2,11 +2,11 @@
 import PackageDescription
 
 let package = Package(
-    name: "Dropo",
+    name: "Droidshelf",
     platforms: [.macOS(.v14)],
     products: [
-        .executable(name: "Dropo", targets: ["Dropo"]),
-        .library(name: "DropoCore", targets: ["DropoCore"]),
+        .executable(name: "Droidshelf", targets: ["Droidshelf"]),
+        .library(name: "DroidshelfCore", targets: ["DroidshelfCore"]),
     ],
     targets: [
         .systemLibrary(
@@ -15,18 +15,18 @@ let package = Package(
             providers: [.brew(["libmtp"])]
         ),
         .target(
-            name: "DropoCore",
+            name: "DroidshelfCore",
             dependencies: ["CLibMTP"],
             linkerSettings: [.linkedFramework("IOKit")]
         ),
         .executableTarget(
-            name: "Dropo",
-            dependencies: ["DropoCore"],
+            name: "Droidshelf",
+            dependencies: ["DroidshelfCore"],
             linkerSettings: [.unsafeFlags(["-Xlinker", "-rpath", "-Xlinker", "@executable_path/../Frameworks"])]
         ),
         .testTarget(
-            name: "DropoCoreTests",
-            dependencies: ["DropoCore"]
+            name: "DroidshelfCoreTests",
+            dependencies: ["DroidshelfCore"]
         ),
     ]
 )

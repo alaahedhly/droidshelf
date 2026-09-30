@@ -1,4 +1,4 @@
-import DropoCore
+import DroidshelfCore
 import SwiftUI
 
 enum SidebarItem: Hashable {

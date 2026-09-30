@@ -1,7 +1,7 @@
 import AppKit
 import AVFoundation
 import QuickLookThumbnailing
-import DropoCore
+import DroidshelfCore
 import UniformTypeIdentifiers
 
 /// Finder's own icons and kind strings, so phone files look exactly like Mac files.
@@ -61,7 +61,7 @@ final class ThumbnailStore {
     private var misses: Set<String> = []
     private let gate = FetchGate()
     private let cacheRoot = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
-        .appendingPathComponent("com.hortensia.dropo/previews")
+        .appendingPathComponent("io.github.alaahedhly.droidshelf/previews")
 
     func thumbnail(for item: Item, on device: ConnectedDevice, size: CGFloat) async -> NSImage? {
         guard !item.isFolder else { return nil }
@@ -95,7 +95,7 @@ final class ThumbnailStore {
     }
 
     private func render(_ item: Item, on device: ConnectedDevice, pixels: Int) async -> NSImage? {
-        let workDir = FileManager.default.temporaryDirectory.appendingPathComponent("DropoPreview-\(UUID().uuidString)")
+        let workDir = FileManager.default.temporaryDirectory.appendingPathComponent("DroidshelfPreview-\(UUID().uuidString)")
         try? FileManager.default.createDirectory(at: workDir, withIntermediateDirectories: true)
         defer { try? FileManager.default.removeItem(at: workDir) }
         let local = workDir.appendingPathComponent(item.name)

@@ -2,10 +2,10 @@
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/icon-dark.png">
-  <img src="docs/icon-light.png" width="128" height="128" alt="Dropo app icon">
+  <img src="docs/icon-light.png" width="128" height="128" alt="Droidshelf app icon">
 </picture>
 
-# Dropo — Android File Transfer for Mac
+# Droidshelf — Android File Transfer for Mac
 
 **Browse, copy and manage your Android phone's files on macOS — in a window that works just like Finder.**
 
@@ -22,23 +22,23 @@ Drag files to and from the Mac, Quick Look them, rename, delete and organise —
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/icons-dark.png">
-  <img src="docs/screenshots/icons-light.png" alt="Dropo showing an Android phone's Download folder on a Mac with photo thumbnails, MP3 album art, a video frame and a PDF preview">
+  <img src="docs/screenshots/icons-light.png" alt="Droidshelf showing an Android phone's Download folder on a Mac with photo thumbnails, MP3 album art, a video frame and a PDF preview">
 </picture>
 
-## Why Dropo?
+## Why Droidshelf?
 
 Moving files between an Android phone and a Mac has always been awkward. Google's **Android File Transfer** app is
 discontinued and flaky on modern macOS, and macOS itself can't read or write Android phones over USB, because they use
 **MTP (Media Transfer Protocol)** instead of showing up as a drive.
 
-Dropo is a small, native macOS app that speaks MTP and presents your phone the way you already know: **icon, list and
+Droidshelf is a small, native macOS app that speaks MTP and presents your phone the way you already know: **icon, list and
 column views, the Finder sidebar, path bar, Quick Look and the same keyboard shortcuts**. It's built in Swift and SwiftUI
 on top of the proven open-source [libmtp](https://github.com/libmtp/libmtp) library.
 
 ## Features
 
 - **Finder-style browsing**: icon, list and column views, sortable columns (name, date, size, kind), path bar, status bar with free space, multiple windows and tabs, light and dark mode.
-- **Real previews, like on your Mac**: phone photo thumbnails, **MP3 album art**, **video first frames**, **PDF and document pages**, and Finder's own file icons. Dropo reads only the few hundred KB each preview needs over MTP, not the whole file, and caches the result.
+- **Real previews, like on your Mac**: phone photo thumbnails, **MP3 album art**, **video first frames**, **PDF and document pages**, and Finder's own file icons. Droidshelf reads only the few hundred KB each preview needs over MTP, not the whole file, and caches the result.
 - **Copy both ways**: drag files and whole folders from Finder onto the window or onto a folder; drag phone files out to the Desktop; or use **Copy to Downloads**, **Copy to…** and **Copy Files to Phone…**.
 - **Transfers that behave**: one progress bar per batch with time remaining and a Stop button, **Keep Both / Replace / Skip** when names clash (Finder-style "photo 2.jpg" naming), and original modification dates kept.
 - **Quick Look and open**: press Space to preview any phone file, or double-click to open it in its Mac app.
@@ -55,14 +55,14 @@ on top of the proven open-source [libmtp](https://github.com/libmtp/libmtp) libr
     <td width="50%">
       <picture>
         <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/list-dark.png">
-        <img src="docs/screenshots/list-light.png" alt="Dropo list view of Android phone files with name, date modified, size and kind columns">
+        <img src="docs/screenshots/list-light.png" alt="Droidshelf list view of Android phone files with name, date modified, size and kind columns">
       </picture>
       <p align="center"><sub>List view: sortable like Finder</sub></p>
     </td>
     <td width="50%">
       <picture>
         <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/columns-dark.png">
-        <img src="docs/screenshots/columns-light.png" alt="Dropo column view with a large album-art preview of an MP3 stored on an Android phone">
+        <img src="docs/screenshots/columns-light.png" alt="Droidshelf column view with a large album-art preview of an MP3 stored on an Android phone">
       </picture>
       <p align="center"><sub>Column view with preview pane</sub></p>
     </td>
@@ -80,12 +80,12 @@ on top of the proven open-source [libmtp](https://github.com/libmtp/libmtp) libr
 ### Build and install
 
 ```bash
-git clone https://github.com/alaahedhly/dropo.git
-cd dropo
+git clone https://github.com/alaahedhly/droidshelf.git
+cd droidshelf
 brew install libmtp pkgconf librsvg
-./scripts/build-app.sh                      # → dist/Dropo.app
-cp -R dist/Dropo.app /Applications/
-open /Applications/Dropo.app
+./scripts/build-app.sh                      # → dist/Droidshelf.app
+cp -R dist/Droidshelf.app /Applications/
+open /Applications/Droidshelf.app
 ```
 
 The build script compiles a release binary, bundles `libmtp` and `libusb` inside the app, and ad-hoc signs it, so it
@@ -101,7 +101,7 @@ The phone appears in the sidebar under **Locations**, and its storage opens auto
 
 ## Keyboard shortcuts
 
-Dropo uses Finder's shortcuts wherever they exist.
+Droidshelf uses Finder's shortcuts wherever they exist.
 
 | Action | Shortcut |
 | --- | --- |
@@ -123,17 +123,17 @@ Dropo uses Finder's shortcuts wherever they exist.
 <details>
 <summary><b>How do I transfer files from an Android phone to a Mac?</b></summary>
 
-Connect the phone with a USB cable, unlock it, choose **File transfer** in the USB notification and open Dropo. Then
-drag files out of Dropo onto your Desktop or into any Finder folder, or select them and press <kbd>⌥</kbd><kbd>⌘</kbd><kbd>C</kbd>
-to copy them to Downloads. To copy files from the Mac to the phone, drag them onto the Dropo window.
+Connect the phone with a USB cable, unlock it, choose **File transfer** in the USB notification and open Droidshelf. Then
+drag files out of Droidshelf onto your Desktop or into any Finder folder, or select them and press <kbd>⌥</kbd><kbd>⌘</kbd><kbd>C</kbd>
+to copy them to Downloads. To copy files from the Mac to the phone, drag them onto the Droidshelf window.
 </details>
 
 <details>
-<summary><b>Is Dropo an alternative to Android File Transfer, OpenMTP or MacDroid?</b></summary>
+<summary><b>Is Droidshelf an alternative to Android File Transfer, OpenMTP or MacDroid?</b></summary>
 
 Yes. It solves the same problem: reading and writing an Android phone over USB (MTP) on macOS.
 
-- **Compared with Android File Transfer**, Dropo is maintained, native Swift, and shows previews.
+- **Compared with Android File Transfer**, Droidshelf is maintained, native Swift, and shows previews.
 - **Compared with OpenMTP**, it isn't an Electron app, and it uses a single Finder-style window instead of two panes.
 - **Compared with MacDroid**, it's free and open source.
 </details>
@@ -146,35 +146,35 @@ Yes. It solves the same problem: reading and writing an Android phone over USB (
 3. Quit other apps that grab phones: Android File Transfer, OpenMTP, Image Capture, Photos, Preview's import, Google Drive, Dropbox.
 4. Choose **View → Look for Phones Again** (<kbd>⇧</kbd><kbd>⌘</kbd><kbd>R</kbd>).
 
-Dropo already stops macOS's `ptpcamerad` daemon when it connects; you can turn that off in **Settings**.
+Droidshelf already stops macOS's `ptpcamerad` daemon when it connects; you can turn that off in **Settings**.
 </details>
 
 <details>
-<summary><b>Does Dropo work over Wi-Fi?</b></summary>
+<summary><b>Does Droidshelf work over Wi-Fi?</b></summary>
 
-Not yet. Dropo uses USB MTP, which works on every Android phone without enabling developer options.
+Not yet. Droidshelf uses USB MTP, which works on every Android phone without enabling developer options.
 </details>
 
 <details>
-<summary><b>Can Dropo show my phone in Finder's own sidebar?</b></summary>
+<summary><b>Can Droidshelf show my phone in Finder's own sidebar?</b></summary>
 
-That's on the roadmap. The device layer (`DropoCore`) is UI-free so it can back a macOS File Provider extension.
+That's on the roadmap. The device layer (`DroidshelfCore`) is UI-free so it can back a macOS File Provider extension.
 </details>
 
 <details>
 <summary><b>Where do files go when I open or preview them?</b></summary>
 
-Opened and Quick Looked files are copied to `~/Library/Caches/com.hortensia.dropo`, and previews are cached there too.
+Opened and Quick Looked files are copied to `~/Library/Caches/io.github.alaahedhly.droidshelf`, and previews are cached there too.
 Editing an opened copy does not change the file on the phone; copy it back with <kbd>⌘</kbd><kbd>U</kbd>.
 </details>
 
 ## How it works
 
 ```
-Dropo.app (SwiftUI)
+Droidshelf.app (SwiftUI)
  ├── BrowserModel      navigation, selection, file operations — one per window
  ├── ThumbnailStore    Quick Look previews from partial MTP reads, cached on disk
- └── DropoCore         UI-free device layer
+ └── DroidshelfCore         UI-free device layer
       ├── MTPDevice        libmtp wrapper, one serial queue per phone
       ├── USBWatcher       IOKit hot-plug notifications
       ├── TransferEngine   recursive batch copy with byte-level progress and cancel
@@ -185,14 +185,14 @@ Dropo.app (SwiftUI)
 - **Previews without downloading whole files**:
   - MP3 album art lives in the ID3 tag at the start of the file.
   - MP4 and MOV videos need their `moov` index, which Android cameras write at the *end*, plus the first keyframe.
-  - Dropo fetches just those ranges with MTP `GetPartialObject` into a sparse local file and lets Quick Look render it in Finder's icon style.
+  - Droidshelf fetches just those ranges with MTP `GetPartialObject` into a sparse local file and lets Quick Look render it in Finder's icon style.
 
 ## Development
 
 ```bash
 swift build                                  # debug build
-swift test                                   # unit tests (DropoCore)
-dist/Dropo.app/Contents/MacOS/Dropo --demo ~/some/folder   # UI without a phone: the folder acts as the phone
+swift test                                   # unit tests (DroidshelfCore)
+dist/Droidshelf.app/Contents/MacOS/Droidshelf --demo ~/some/folder   # UI without a phone: the folder acts as the phone
 ```
 
 Command Line Tools only (no Xcode):
@@ -200,8 +200,8 @@ Command Line Tools only (no Xcode):
 - The tests need `-Xswiftc -plugin-path -Xswiftc /Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing`.
 
 ```
-Sources/DropoCore   device layer (libmtp, IOKit, transfers, preview planning)
-Sources/Dropo       SwiftUI app
+Sources/DroidshelfCore   device layer (libmtp, IOKit, transfers, preview planning)
+Sources/Droidshelf       SwiftUI app
 Tests/              swift-testing unit tests
 scripts/            app bundling
 logos/final/        app icon sources (light and dark)
@@ -216,6 +216,6 @@ logos/final/        app icon sources (light and dark)
 
 ## Acknowledgements
 
-Dropo is built on [libmtp](https://github.com/libmtp/libmtp) and [libusb](https://libusb.info), both LGPL-2.1. They're
+Droidshelf is built on [libmtp](https://github.com/libmtp/libmtp) and [libusb](https://libusb.info), both LGPL-2.1. They're
 bundled as dynamic libraries inside the app, so they can be replaced independently. Android is a trademark of Google
-LLC; Mac, macOS and Finder are trademarks of Apple Inc. Dropo is not affiliated with either.
+LLC; Mac, macOS and Finder are trademarks of Apple Inc. Droidshelf is not affiliated with either.

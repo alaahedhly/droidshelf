@@ -37,7 +37,7 @@ public final class BatchProgress: @unchecked Sendable {
     }
 
     func checkCancelled() throws {
-        if isCancelled { throw DropoError.cancelled }
+        if isCancelled { throw DroidshelfError.cancelled }
     }
 }
 

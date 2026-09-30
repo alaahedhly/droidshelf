@@ -11,7 +11,7 @@ public struct RawDevice: Hashable, Sendable {
 }
 
 public enum MTPLibrary {
-    private static let queue = DispatchQueue(label: "dropo.mtp.library")
+    private static let queue = DispatchQueue(label: "droidshelf.mtp.library")
     private static let initialize: Void = {
         LIBMTP_Init()
         LIBMTP_Set_Debug(0)
@@ -61,13 +61,13 @@ public enum MTPLibrary {
             if releaseFromImageCapture { ImageCaptureGuard.evict() }
             if attempt > 0 { Thread.sleep(forTimeInterval: 0.5) }
             guard var raw = rawDevices().first(where: { $0.public.key == device.key })?.raw else {
-                throw DropoError.notConnected
+                throw DroidshelfError.notConnected
             }
             if let handle = LIBMTP_Open_Raw_Device_Uncached(&raw) {
                 return MTPDevice(handle: handle, raw: device)
             }
         }
-        throw DropoError.cannotOpen("Unlock the phone and pick “File transfer” in its USB notification.")
+        throw DroidshelfError.cannotOpen("Unlock the phone and pick “File transfer” in its USB notification.")
     }
 }
 
@@ -91,7 +91,7 @@ public final class MTPDevice: DeviceBackend, @unchecked Sendable {
     public let raw: RawDevice
     public let info: DeviceInfo
 
-    private let queue = DispatchQueue(label: "dropo.mtp.device")
+    private let queue = DispatchQueue(label: "droidshelf.mtp.device")
     private var handle: UnsafeMutablePointer<LIBMTP_mtpdevice_t>?
 
     init(handle: UnsafeMutablePointer<LIBMTP_mtpdevice_t>, raw: RawDevice) {
@@ -177,7 +177,7 @@ public final class MTPDevice: DeviceBackend, @unchecked Sendable {
             }
             if status != 0 {
                 try? FileManager.default.removeItem(at: destination)
-                if box.cancelled { throw DropoError.cancelled }
+                if box.cancelled { throw DroidshelfError.cancelled }
                 throw self.failure(device, "Couldn't copy “\(item.name)” from the phone.")
             }
         }
@@ -186,7 +186,7 @@ public final class MTPDevice: DeviceBackend, @unchecked Sendable {
     public func upload(_ source: URL, as name: String, into folder: FolderRef, progress: @escaping ProgressHandler) async throws -> Item {
         try await run { device in
             let size = (try? FileManager.default.attributesOfItem(atPath: source.path)[.size] as? UInt64) ?? 0
-            guard let file = LIBMTP_new_file_t() else { throw DropoError.operationFailed("Out of memory.") }
+            guard let file = LIBMTP_new_file_t() else { throw DroidshelfError.operationFailed("Out of memory.") }
             defer { LIBMTP_destroy_file_t(file) }
             file.pointee.filename = strdup(name)
             file.pointee.filesize = size
@@ -200,7 +200,7 @@ public final class MTPDevice: DeviceBackend, @unchecked Sendable {
                 LIBMTP_Send_File_From_File(device, source.path, file, progressTrampoline, Unmanaged.passUnretained(box).toOpaque())
             }
             if status != 0 {
-                if box.cancelled { throw DropoError.cancelled }
+                if box.cancelled { throw DroidshelfError.cancelled }
                 throw self.failure(device, "Couldn't copy “\(name)” to the phone.")
             }
             return Item(
@@ -271,7 +271,7 @@ public final class MTPDevice: DeviceBackend, @unchecked Sendable {
     private func run<T: Sendable>(_ body: @escaping @Sendable (UnsafeMutablePointer<LIBMTP_mtpdevice_t>) throws -> T) async throws -> T {
         try await withCheckedThrowingContinuation { continuation in
             queue.async {
-                guard let handle = self.handle else { return continuation.resume(throwing: DropoError.notConnected) }
+                guard let handle = self.handle else { return continuation.resume(throwing: DroidshelfError.notConnected) }
                 continuation.resume(with: Result { try body(handle) })
             }
         }
@@ -293,7 +293,7 @@ public final class MTPDevice: DeviceBackend, @unchecked Sendable {
         guard LIBMTP_Delete_Object(device, item.id) == 0 else { throw failure(device, "Couldn't delete “\(item.name)”.") }
     }
 
-    private func failure(_ device: UnsafeMutablePointer<LIBMTP_mtpdevice_t>, _ message: String) -> DropoError {
+    private func failure(_ device: UnsafeMutablePointer<LIBMTP_mtpdevice_t>, _ message: String) -> DroidshelfError {
         var detail: String?
         var node = LIBMTP_Get_Errorstack(device)
         while let error = node?.pointee {
