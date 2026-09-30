@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <clipPath id="tile"><path d="M 285.4 100 H 738.6 C 841 100 924 183 924 285.4 V 738.6 C 924 841 841 924 738.6 924 H 285.4 C 183 924 100 841 100 738.6 V 285.4 C 100 183 183 100 285.4 100 Z"/></clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF4E0"/><stop offset="1" stop-color="#F7D9A8"/></linearGradient>
+    <linearGradient id="cap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4ADE9A"/><stop offset="0.5" stop-color="#16A36A"/><stop offset="1" stop-color="#0B6E48"/></linearGradient>
+    <linearGradient id="brass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE7A8"/><stop offset="0.5" stop-color="#D9A441"/><stop offset="1" stop-color="#8F6320"/></linearGradient>
+    <filter id="sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#6B4410" flood-opacity="0.3"/></filter>
+  </defs>
+  <path d="M 285.4 100 H 738.6 C 841 100 924 183 924 285.4 V 738.6 C 924 841 841 924 738.6 924 H 285.4 C 183 924 100 841 100 738.6 V 285.4 C 100 183 183 100 285.4 100 Z" fill="url(#bg)"/>
+  <g id="icon" clip-path="url(#tile)">
+    <path d="M 60 300 C 380 300 420 724 964 724" fill="none" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="190"/>
+    <path d="M 60 300 C 380 300 420 724 964 724" fill="none" stroke="#B98A45" stroke-opacity="0.35" stroke-width="190" stroke-dasharray="0" transform="translate(0 0)"/>
+    <g filter="url(#sh)" transform="rotate(38 512 512)">
+      <rect x="330" y="440" width="364" height="144" rx="72" fill="url(#cap)"/>
+      <rect x="330" y="440" width="70" height="144" rx="30" fill="url(#brass)"/>
+      <rect x="624" y="440" width="70" height="144" rx="30" fill="url(#brass)"/>
+      <rect x="420" y="462" width="184" height="18" rx="9" fill="#FFFFFF" opacity="0.5"/>
+      <path d="M 460 400 H 560 L 590 430 V 470 H 460 Z" fill="#FFFFFF"/>
+    </g>
+    <path d="M 60 300 C 380 300 420 724 964 724" fill="none" stroke="#FFFFFF" stroke-opacity="0.9" stroke-width="14" transform="translate(0 -86)"/>
+    <path d="M 60 300 C 380 300 420 724 964 724" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="10" transform="translate(0 84)"/>
+  </g>
+</svg>

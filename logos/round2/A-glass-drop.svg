@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F8FF"/><stop offset="1" stop-color="#C9DDFB"/></linearGradient>
+    <radialGradient id="body" cx="0.38" cy="0.62" r="0.75"><stop offset="0" stop-color="#7EE8B7"/><stop offset="0.45" stop-color="#2FC58A"/><stop offset="1" stop-color="#0E7C74"/></radialGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.9"/><stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0.35"/></linearGradient>
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.85"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+    <radialGradient id="ground" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#0B3D63" stop-opacity="0.35"/><stop offset="1" stop-color="#0B3D63" stop-opacity="0"/></radialGradient>
+    <radialGradient id="caustic" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#E6FFF4" stop-opacity="0.9"/><stop offset="1" stop-color="#E6FFF4" stop-opacity="0"/></radialGradient>
+  </defs>
+  <path d="M 285.4 100 H 738.6 C 841 100 924 183 924 285.4 V 738.6 C 924 841 841 924 738.6 924 H 285.4 C 183 924 100 841 100 738.6 V 285.4 C 100 183 183 100 285.4 100 Z" fill="url(#bg)"/>
+  <ellipse cx="512" cy="846" rx="230" ry="34" fill="url(#ground)"/>
+  <g id="icon">
+    <path d="M 512 150 C 620 290 752 440 752 598 A 240 240 0 1 1 272 598 C 272 440 404 290 512 150 Z" fill="url(#body)"/>
+    <path d="M 512 150 C 620 290 752 440 752 598 A 240 240 0 1 1 272 598 C 272 440 404 290 512 150 Z" fill="none" stroke="url(#rim)" stroke-width="10"/>
+    <ellipse cx="560" cy="742" rx="120" ry="58" fill="url(#caustic)"/>
+    <path d="M 424 330 C 388 390 342 460 334 540 C 330 580 356 594 376 566 C 404 520 430 440 470 380 C 492 346 452 290 424 330 Z" fill="url(#gloss)"/>
+    <g fill="none" stroke="#FFFFFF" stroke-width="38" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 452 520 V 700 M 408 656 L 452 700 L 496 656"/>
+      <path d="M 572 700 V 520 M 528 564 L 572 520 L 616 564"/>
+    </g>
+  </g>
+</svg>

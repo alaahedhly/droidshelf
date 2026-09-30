@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3EE08F"/><stop offset="0.55" stop-color="#1FB5A0"/><stop offset="1" stop-color="#1E6FE0"/></linearGradient>
+    <linearGradient id="frame" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C9CED6"/><stop offset="0.15" stop-color="#F7F8FA"/><stop offset="0.85" stop-color="#E6E9EE"/><stop offset="1" stop-color="#AEB4BE"/></linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B2233"/><stop offset="1" stop-color="#0A0E17"/></linearGradient>
+    <linearGradient id="glare" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.18"/><stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+    <linearGradient id="drop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8AF3C0"/><stop offset="1" stop-color="#22C07A"/></linearGradient>
+    <filter id="sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="24" stdDeviation="26" flood-color="#062A3D" flood-opacity="0.45"/></filter>
+  </defs>
+  <path d="M 285.4 100 H 738.6 C 841 100 924 183 924 285.4 V 738.6 C 924 841 841 924 738.6 924 H 285.4 C 183 924 100 841 100 738.6 V 285.4 C 100 183 183 100 285.4 100 Z" fill="url(#bg)"/>
+  <path d="M 100 520 C 330 440 620 700 924 560 V 738.6 C 924 841 841 924 738.6 924 H 285.4 C 183 924 100 841 100 738.6 Z" fill="#FFFFFF" opacity="0.10"/>
+  <g id="icon" filter="url(#sh)">
+    <rect x="330" y="168" width="364" height="688" rx="70" fill="url(#frame)"/>
+    <rect x="352" y="192" width="320" height="640" rx="50" fill="url(#screen)"/>
+    <circle cx="512" cy="224" r="10" fill="#2A3242"/>
+    <path d="M 512 350 C 574 428 638 500 638 578 A 126 126 0 1 1 386 578 C 386 500 450 428 512 350 Z" fill="url(#drop)"/>
+    <path d="M 468 470 C 448 504 426 540 424 578" stroke="#FFFFFF" stroke-opacity="0.6" stroke-width="16" stroke-linecap="round" fill="none"/>
+    <path d="M 352 242 C 352 214 374 192 402 192 H 672 L 352 700 Z" fill="url(#glare)"/>
+  </g>
+</svg>

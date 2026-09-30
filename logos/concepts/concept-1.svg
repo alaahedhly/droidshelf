@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4F8CFF"/><stop offset="1" stop-color="#2A4FD6"/></linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D2340"/><stop offset="1" stop-color="#0E1226"/></linearGradient>
+    <linearGradient id="drop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6FF0A8"/><stop offset="1" stop-color="#1FBF6A"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#0A1A5C" flood-opacity="0.45"/></filter>
+  </defs>
+  <path id="background" d="M 285.4 100 H 738.6 C 841 100 924 183 924 285.4 V 738.6 C 924 841 841 924 738.6 924 H 285.4 C 183 924 100 841 100 738.6 V 285.4 C 100 183 183 100 285.4 100 Z" fill="url(#bg)"/>
+  <g id="icon" filter="url(#shadow)">
+    <rect x="322" y="196" width="380" height="632" rx="72" fill="#F4F6FB"/>
+    <rect x="346" y="228" width="332" height="568" rx="50" fill="url(#screen)"/>
+    <rect x="472" y="246" width="80" height="16" rx="8" fill="#F4F6FB"/>
+    <path d="M 512 340 C 568 412 638 488 638 572 A 126 126 0 1 1 386 572 C 386 488 456 412 512 340 Z" fill="url(#drop)"/>
+    <path d="M 512 520 V 640 M 462 596 L 512 646 L 562 596" fill="none" stroke="#0E3B22" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

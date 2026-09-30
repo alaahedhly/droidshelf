@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2B7BFF"/><stop offset="1" stop-color="#16C784"/></linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.25"/><stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+    <filter id="sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#062F4F" flood-opacity="0.35"/></filter>
+  </defs>
+  <path d="M 285.4 100 H 738.6 C 841 100 924 183 924 285.4 V 738.6 C 924 841 841 924 738.6 924 H 285.4 C 183 924 100 841 100 738.6 V 285.4 C 100 183 183 100 285.4 100 Z" fill="url(#bg)"/>
+  <path d="M 285.4 100 H 738.6 C 841 100 924 183 924 285.4 V 738.6 C 924 841 841 924 738.6 924 H 285.4 C 183 924 100 841 100 738.6 V 285.4 C 100 183 183 100 285.4 100 Z" fill="url(#sheen)"/>
+  <g id="icon" filter="url(#sh)" fill="#FFFFFF">
+    <path fill-rule="evenodd" d="M 628 190 H 712 C 728 190 740 202 740 218 V 800 C 740 816 728 828 712 828 H 656 C 640 828 628 816 628 800 V 776 C 590 814 540 836 482 836 C 360 836 272 740 272 612 C 272 484 360 388 482 388 C 540 388 590 410 628 448 Z M 492 488 C 422 488 380 544 380 612 C 380 680 422 736 492 736 C 562 736 612 680 612 612 C 612 544 562 488 492 488 Z"/>
+  </g>
+  <path d="M 494 548 C 516 576 540 602 540 632 A 46 46 0 1 1 448 632 C 448 602 472 576 494 548 Z" fill="#16C784"/>
+</svg>

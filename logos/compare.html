@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dropo Icon Comparison</title>
+<style>
+  :root {
+    --bg: #f5f5f7; --surface: #ffffff; --text: #1d1d1f; --muted: #6e6e73; --border: #d2d2d7; --accent: #0a84ff;
+    --wall: linear-gradient(135deg, #f3b37a 0%, #e0795b 35%, #6b8fd6 70%, #2c3e8f 100%);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg: #1c1c1e; --surface: #2c2c2e; --text: #f5f5f7; --muted: #a1a1a6; --border: #3a3a3c; }
+  }
+  :root[data-theme="dark"] { --bg: #1c1c1e; --surface: #2c2c2e; --text: #f5f5f7; --muted: #a1a1a6; --border: #3a3a3c; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--bg); color: var(--text); font: 15px/1.45 -apple-system, BlinkMacSystemFont, "SF Pro Text", Inter, system-ui, sans-serif; padding: 32px 16px 160px; transition: background .2s ease-out, color .2s ease-out; }
+  header { max-width: 1200px; margin: 0 auto 28px; display: flex; gap: 16px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+  h1 { font-size: 28px; letter-spacing: -.02em; }
+  header p { color: var(--muted); }
+  .toggles { display: flex; gap: 8px; }
+  button { font: inherit; font-size: 13px; padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); cursor: pointer; }
+  button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+  section { max-width: 1200px; margin: 0 auto 40px; }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 14px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: border-color .15s ease-out, box-shadow .15s ease-out; }
+  .card.picked { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent); }
+  .hero { display: grid; place-items: center; padding: 22px; background: var(--wall); }
+  .hero img { width: 100%; max-width: 220px; height: auto; filter: drop-shadow(0 10px 18px rgba(0,0,0,.28)); }
+  .meta { padding: 14px 16px 6px; }
+  .meta h3 { font-size: 16px; }
+  .meta p { color: var(--muted); font-size: 13px; }
+  .sizes { display: flex; align-items: flex-end; gap: 14px; padding: 10px 16px; flex-wrap: wrap; }
+  .sizes figure { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .sizes figcaption { font-size: 11px; color: var(--muted); }
+  .pick { margin: 6px 16px 16px; font-size: 13px; display: flex; gap: 8px; align-items: center; cursor: pointer; }
+  .dock-wrap { position: fixed; left: 0; right: 0; bottom: 14px; display: flex; justify-content: center; padding: 0 16px; pointer-events: none; }
+  .dock { pointer-events: auto; display: flex; gap: 8px; padding: 8px 10px; border-radius: 22px; background: rgba(255,255,255,.28); backdrop-filter: blur(24px) saturate(1.6); -webkit-backdrop-filter: blur(24px) saturate(1.6); border: 1px solid rgba(255,255,255,.35); box-shadow: 0 10px 30px rgba(0,0,0,.25); overflow-x: auto; max-width: 100%; }
+  .dock img { width: 56px; height: 56px; flex: none; transition: transform .15s ease-out; }
+  .dock img:hover { transform: translateY(-8px) scale(1.15); }
+  .wall-bg { position: fixed; inset: auto 0 0 0; height: 110px; background: var(--wall); z-index: -1; opacity: .9; }
+  @media (max-width: 600px) { .dock img { width: 40px; height: 40px; } }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Dropo icon comparison</h1>
+    <p>Large on a wallpaper, at real macOS sizes, and in the Dock below. Hover the Dock to magnify.</p>
+  </div>
+  <div class="toggles">
+    <button data-theme-set="light">Light</button>
+    <button data-theme-set="dark">Dark</button>
+    <button data-theme-set="auto" aria-pressed="true">Auto</button>
+  </div>
+</header>
+<section><h2>Round 3 — carrying files across</h2><div class="grid"><article class="card" data-name="A · Drop-off drone">
+      <div class="hero"><img src="round3/A-drone.svg" alt="A · Drop-off drone" width="220" height="220"></div>
+      <div class="meta"><h3>A · Drop-off drone</h3><p>“Dropo” as in drop-off: a courier drone delivering a folder.</p></div>
+      <div class="sizes"><figure><img src="round3/A-drone.svg" width="128" height="128" alt=""><figcaption>128</figcaption></figure><figure><img src="round3/A-drone.svg" width="64" height="64" alt=""><figcaption>64</figcaption></figure><figure><img src="round3/A-drone.svg" width="32" height="32" alt=""><figcaption>32</figcaption></figure><figure><img src="round3/A-drone.svg" width="16" height="16" alt=""><figcaption>16</figcaption></figure></div>
+      <label class="pick"><input type="radio" name="pick" value="A · Drop-off drone"> This one</label>
+    </article><article class="card" data-name="B · Portal">
+      <div class="hero"><img src="round3/B-portal.svg" alt="B · Portal" width="220" height="220"></div>
+      <div class="meta"><h3>B · Portal</h3><p>A document flying out of a glowing portal — files teleport between worlds.</p></div>
+      <div class="sizes"><figure><img src="round3/B-portal.svg" width="128" height="128" alt=""><figcaption>128</figcaption></figure><figure><img src="round3/B-portal.svg" width="64" height="64" alt=""><figcaption>64</figcaption></figure><figure><img src="round3/B-portal.svg" width="32" height="32" alt=""><figcaption>32</figcaption></figure><figure><img src="round3/B-portal.svg" width="16" height="16" alt=""><figcaption>16</figcaption></figure></div>
+      <label class="pick"><input type="radio" name="pick" value="B · Portal"> This one</label>
+    </article><article class="card" data-name="C · Pneumatic tube">
+      <div class="hero"><img src="round3/C-tube.svg" alt="C · Pneumatic tube" width="220" height="220"></div>
+      <div class="meta"><h3>C · Pneumatic tube</h3><p>A capsule shooting a document through a glass message tube.</p></div>
+      <div class="sizes"><figure><img src="round3/C-tube.svg" width="128" height="128" alt=""><figcaption>128</figcaption></figure><figure><img src="round3/C-tube.svg" width="64" height="64" alt=""><figcaption>64</figcaption></figure><figure><img src="round3/C-tube.svg" width="32" height="32" alt=""><figcaption>32</figcaption></figure><figure><img src="round3/C-tube.svg" width="16" height="16" alt=""><figcaption>16</figcaption></figure></div>
+      <label class="pick"><input type="radio" name="pick" value="C · Pneumatic tube"> This one</label>
+    </article><article class="card" data-name="D · Mascot">
+      <div class="hero"><img src="round3/D-mascot.svg" alt="D · Mascot" width="220" height="220"></div>
+      <div class="meta"><h3>D · Mascot</h3><p>Dropo as a character carrying a Mac folder overhead.</p></div>
+      <div class="sizes"><figure><img src="round3/D-mascot.svg" width="128" height="128" alt=""><figcaption>128</figcaption></figure><figure><img src="round3/D-mascot.svg" width="64" height="64" alt=""><figcaption>64</figcaption></figure><figure><img src="round3/D-mascot.svg" width="32" height="32" alt=""><figcaption>32</figcaption></figure><figure><img src="round3/D-mascot.svg" width="16" height="16" alt=""><figcaption>16</figcaption></figure></div>
+      <label class="pick"><input type="radio" name="pick" value="D · Mascot"> This one</label>
+    </article></div></section><section><h2>Round 2 — drop & phone, premium</h2><div class="grid"><article class="card" data-name="Glass droplet">
+      <div class="hero"><img src="round2/A-glass-drop.svg" alt="Glass droplet" width="220" height="220"></div>
+      <div class="meta"><h3>Glass droplet</h3><p>Glossy liquid-glass drop with two-way arrows.</p></div>
+      <div class="sizes"><figure><img src="round2/A-glass-drop.svg" width="128" height="128" alt=""><figcaption>128</figcaption></figure><figure><img src="round2/A-glass-drop.svg" width="64" height="64" alt=""><figcaption>64</figcaption></figure><figure><img src="round2/A-glass-drop.svg" width="32" height="32" alt=""><figcaption>32</figcaption></figure><figure><img src="round2/A-glass-drop.svg" width="16" height="16" alt=""><figcaption>16</figcaption></figure></div>
+      <label class="pick"><input type="radio" name="pick" value="Glass droplet"> This one</label>
+    </article><article class="card" data-name="Phone into folder">
+      <div class="hero"><img src="round2/B-phone-folder.svg" alt="Phone into folder" width="220" height="220"></div>
+      <div class="meta"><h3>Phone into folder</h3><p>Green phone sliding into a Mac folder.</p></div>
+      <div class="sizes"><figure><img src="round2/B-phone-folder.svg" width="128" height="128" alt=""><figcaption>128</figcaption></figure><figure><img src="round2/B-phone-folder.svg" width="64" height="64" alt=""><figcaption>64</figcaption></figure><figure><img src="round2/B-phone-folder.svg" width="32" height="32" alt=""><figcaption>32</figcaption></figure><figure><img src="round2/B-phone-folder.svg" width="16" height="16" alt=""><figcaption>16</figcaption></figure></div>
+      <label class="pick"><input type="radio" name="pick" value="Phone into folder"> This one</label>
+    </article><article class="card" data-name="Device">
+      <div class="hero"><img src="round2/C-device.svg" alt="Device" width="220" height="220"></div>
+      <div class="meta"><h3>Device</h3><p>Silver phone with a glowing drop on screen.</p></div>
+      <div class="sizes"><figure><img src="round2/C-device.svg" width="128" height="128" alt=""><figcaption>128</figcaption></figure><figure><img src="round2/C-device.svg" width="64" height="64" alt=""><figcaption>64</figcaption></figure><figure><img src="round2/C-device.svg" width="32" height="32" alt=""><figcaption>32</figcaption></figure><figure><img src="round2/C-device.svg" width="16" height="16" alt=""><figcaption>16</figcaption></figure></div>
+      <label class="pick"><input type="radio" name="pick" value="Device"> This one</label>
+    </article><article class="card" data-name="Monogram">
+      <div class="hero"><img src="round2/D-monogram.svg" alt="Monogram" width="220" height="220"></div>
+      <div class="meta"><h3>Monogram</h3><p>Bold “d” holding a drop.</p></div>
+      <div class="sizes"><figure><img src="round2/D-monogram.svg" width="128" height="128" alt=""><figcaption>128</figcaption></figure><figure><img src="round2/D-monogram.svg" width="64" height="64" alt=""><figcaption>64</figcaption></figure><figure><img src="round2/D-monogram.svg" width="32" height="32" alt=""><figcaption>32</figcaption></figure><figure><img src="round2/D-monogram.svg" width="16" height="16" alt=""><figcaption>16</figcaption></figure></div>
+      <label class="pick"><input type="radio" name="pick" value="Monogram"> This one</label>
+    </article></div></section><section><h2>Round 1 — current icon & first concepts</h2><div class="grid"><article class="card" data-name="Current icon">
+      <div class="hero"><img src="export/logo.svg" alt="Current icon" width="220" height="220"></div>
+      <div class="meta"><h3>Current icon</h3><p>What’s in the Dock now.</p></div>
+      <div class="sizes"><figure><img src="export/logo.svg" width="128" height="128" alt=""><figcaption>128</figcaption></figure><figure><img src="export/logo.svg" width="64" height="64" alt=""><figcaption>64</figcaption></figure><figure><img src="export/logo.svg" width="32" height="32" alt=""><figcaption>32</figcaption></figure><figure><img src="export/logo.svg" width="16" height="16" alt=""><figcaption>16</figcaption></figure></div>
+      <label class="pick"><input type="radio" name="pick" value="Current icon"> This one</label>
+    </article><article class="card" data-name="Phone + drop">
+      <div class="hero"><img src="concepts/concept-1.svg" alt="Phone + drop" width="220" height="220"></div>
+      <div class="meta"><h3>Phone + drop</h3><p>First concept.</p></div>
+      <div class="sizes"><figure><img src="concepts/concept-1.svg" width="128" height="128" alt=""><figcaption>128</figcaption></figure><figure><img src="concepts/concept-1.svg" width="64" height="64" alt=""><figcaption>64</figcaption></figure><figure><img src="concepts/concept-1.svg" width="32" height="32" alt=""><figcaption>32</figcaption></figure><figure><img src="concepts/concept-1.svg" width="16" height="16" alt=""><figcaption>16</figcaption></figure></div>
+      <label class="pick"><input type="radio" name="pick" value="Phone + drop"> This one</label>
+    </article><article class="card" data-name="Folder + drop">
+      <div class="hero"><img src="concepts/concept-2.svg" alt="Folder + drop" width="220" height="220"></div>
+      <div class="meta"><h3>Folder + drop</h3><p>First concept.</p></div>
+      <div class="sizes"><figure><img src="concepts/concept-2.svg" width="128" height="128" alt=""><figcaption>128</figcaption></figure><figure><img src="concepts/concept-2.svg" width="64" height="64" alt=""><figcaption>64</figcaption></figure><figure><img src="concepts/concept-2.svg" width="32" height="32" alt=""><figcaption>32</figcaption></figure><figure><img src="concepts/concept-2.svg" width="16" height="16" alt=""><figcaption>16</figcaption></figure></div>
+      <label class="pick"><input type="radio" name="pick" value="Folder + drop"> This one</label>
+    </article></div></section>
+<div class="wall-bg"></div>
+<div class="dock-wrap"><div class="dock"><img src="round3/A-drone.svg" alt="" title="round3/A-drone.svg"><img src="round3/B-portal.svg" alt="" title="round3/B-portal.svg"><img src="round3/C-tube.svg" alt="" title="round3/C-tube.svg"><img src="round3/D-mascot.svg" alt="" title="round3/D-mascot.svg"><img src="round2/A-glass-drop.svg" alt="" title="round2/A-glass-drop.svg"><img src="round2/B-phone-folder.svg" alt="" title="round2/B-phone-folder.svg"><img src="round2/C-device.svg" alt="" title="round2/C-device.svg"><img src="round2/D-monogram.svg" alt="" title="round2/D-monogram.svg"><img src="export/logo.svg" alt="" title="export/logo.svg"><img src="concepts/concept-1.svg" alt="" title="concepts/concept-1.svg"><img src="concepts/concept-2.svg" alt="" title="concepts/concept-2.svg"></div></div>
+<script>
+  document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('click', () => {
+    const v = b.dataset.themeSet;
+    if (v === 'auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.dataset.theme = v;
+    document.querySelectorAll('[data-theme-set]').forEach(x => x.setAttribute('aria-pressed', x === b));
+  }));
+  document.querySelectorAll('input[name=pick]').forEach(r => r.addEventListener('change', () => {
+    document.querySelectorAll('.card').forEach(c => c.classList.toggle('picked', c.contains(r) && r.checked));
+  }));
+</script>
+</body>
+</html>

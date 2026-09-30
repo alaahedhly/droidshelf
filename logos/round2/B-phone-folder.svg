@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E4E9F2"/></linearGradient>
+    <linearGradient id="fback" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5DAEF6"/><stop offset="1" stop-color="#2F86E4"/></linearGradient>
+    <linearGradient id="ffront" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9AD2FF"/><stop offset="1" stop-color="#4FA3F2"/></linearGradient>
+    <linearGradient id="phone" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#63E6A0"/><stop offset="1" stop-color="#14A45C"/></linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0F2A22"/><stop offset="1" stop-color="#08140F"/></linearGradient>
+    <filter id="sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#0B2A55" flood-opacity="0.3"/></filter>
+  </defs>
+  <path d="M 285.4 100 H 738.6 C 841 100 924 183 924 285.4 V 738.6 C 924 841 841 924 738.6 924 H 285.4 C 183 924 100 841 100 738.6 V 285.4 C 100 183 183 100 285.4 100 Z" fill="url(#bg)"/>
+  <g id="icon">
+    <path filter="url(#sh)" d="M 190 340 C 190 312 212 290 240 290 H 420 C 438 290 450 298 460 312 L 486 350 H 784 C 812 350 834 372 834 400 V 780 C 834 808 812 830 784 830 H 240 C 212 830 190 808 190 780 Z" fill="url(#fback)"/>
+    <g filter="url(#sh)" transform="rotate(-12 560 420)">
+      <rect x="440" y="180" width="250" height="440" rx="48" fill="url(#phone)"/>
+      <rect x="462" y="206" width="206" height="388" rx="30" fill="url(#screen)"/>
+      <path d="M 565 300 C 600 344 640 390 640 440 A 75 75 0 1 1 490 440 C 490 390 530 344 565 300 Z" fill="#3DDC84"/>
+    </g>
+    <path filter="url(#sh)" d="M 190 470 C 190 442 212 420 240 420 H 784 C 812 420 834 442 834 470 V 780 C 834 808 812 830 784 830 H 240 C 212 830 190 808 190 780 Z" fill="url(#ffront)"/>
+    <path d="M 240 420 H 784 C 812 420 834 442 834 470 V 480 H 190 V 470 C 190 442 212 420 240 420 Z" fill="#FFFFFF" opacity="0.35"/>
+  </g>
+</svg>

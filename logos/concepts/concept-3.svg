@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#23262F"/><stop offset="1" stop-color="#0F1116"/></linearGradient>
+    <linearGradient id="mac" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5AA2FF"/><stop offset="1" stop-color="#2F6BF0"/></linearGradient>
+    <linearGradient id="droid" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4BE08E"/><stop offset="1" stop-color="#18A85A"/></linearGradient>
+    <clipPath id="dropClip"><path d="M 512 170 C 612 296 742 430 742 580 A 230 230 0 1 1 282 580 C 282 430 412 296 512 170 Z"/></clipPath>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="20" stdDeviation="26" flood-color="#000" flood-opacity="0.5"/></filter>
+  </defs>
+  <path id="background" d="M 285.4 100 H 738.6 C 841 100 924 183 924 285.4 V 738.6 C 924 841 841 924 738.6 924 H 285.4 C 183 924 100 841 100 738.6 V 285.4 C 100 183 183 100 285.4 100 Z" fill="url(#bg)"/>
+  <g id="icon" filter="url(#shadow)">
+    <g clip-path="url(#dropClip)">
+      <rect x="200" y="150" width="640" height="720" fill="url(#droid)"/>
+      <path d="M 200 150 H 840 V 420 L 200 760 Z" fill="url(#mac)"/>
+    </g>
+    <path d="M 440 470 V 690 M 390 640 L 440 690 L 490 640" fill="none" stroke="#FFFFFF" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 584 690 V 470 M 534 520 L 584 470 L 634 520" fill="none" stroke="#FFFFFF" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9FDCFF"/><stop offset="1" stop-color="#3D8EF0"/></linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#D5DBE4"/></linearGradient>
+    <linearGradient id="fb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFC94D"/><stop offset="1" stop-color="#F59E0B"/></linearGradient>
+    <linearGradient id="ff" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE08A"/><stop offset="1" stop-color="#FBBF24"/></linearGradient>
+    <filter id="sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#0B3A75" flood-opacity="0.3"/></filter>
+  </defs>
+  <path d="M 285.4 100 H 738.6 C 841 100 924 183 924 285.4 V 738.6 C 924 841 841 924 738.6 924 H 285.4 C 183 924 100 841 100 738.6 V 285.4 C 100 183 183 100 285.4 100 Z" fill="url(#bg)"/>
+  <g fill="#FFFFFF" opacity="0.55"><ellipse cx="250" cy="760" rx="120" ry="44"/><ellipse cx="330" cy="740" rx="90" ry="56"/><ellipse cx="790" cy="300" rx="90" ry="34"/><ellipse cx="850" cy="286" rx="60" ry="40"/></g>
+  <g id="icon" filter="url(#sh)">
+    <g stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"><path d="M 470 360 L 468 520"/><path d="M 554 360 L 556 520"/></g>
+    <path d="M 330 262 H 694" stroke="#5B6678" stroke-width="22" stroke-linecap="round"/>
+    <g fill="#E8EEF6" opacity="0.9"><ellipse cx="300" cy="244" rx="118" ry="20"/><ellipse cx="724" cy="244" rx="118" ry="20"/></g>
+    <g fill="#5B6678"><rect x="288" y="238" width="24" height="40" rx="8"/><rect x="712" y="238" width="24" height="40" rx="8"/></g>
+    <rect x="392" y="262" width="240" height="110" rx="55" fill="url(#body)"/>
+    <rect x="440" y="290" width="144" height="46" rx="23" fill="#1E2A3D"/>
+    <circle cx="512" cy="313" r="12" fill="#56E39F"/>
+    <path d="M 316 560 C 316 538 334 520 356 520 H 470 C 484 520 494 526 502 536 L 520 560 H 668 C 690 560 708 578 708 600 V 780 C 708 802 690 820 668 820 H 356 C 334 820 316 802 316 780 Z" fill="url(#fb)"/>
+    <path d="M 316 620 C 316 598 334 580 356 580 H 668 C 690 580 708 598 708 620 V 780 C 708 802 690 820 668 820 H 356 C 334 820 316 802 316 780 Z" fill="url(#ff)"/>
+  </g>
+</svg>

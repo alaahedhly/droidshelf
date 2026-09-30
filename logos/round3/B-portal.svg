@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1B1F4B"/><stop offset="1" stop-color="#3B1D6E"/></linearGradient>
+    <radialGradient id="void" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#7CF2C6"/><stop offset="0.55" stop-color="#1FA6C9"/><stop offset="1" stop-color="#16225E"/></radialGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6CF5B4"/><stop offset="1" stop-color="#3C7BFF"/></linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E3E8F1"/></linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="22"/></filter>
+    <filter id="sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="10" dy="18" stdDeviation="16" flood-color="#000" flood-opacity="0.35"/></filter>
+    <clipPath id="out"><rect x="392" y="0" width="700" height="1024"/></clipPath>
+  </defs>
+  <path d="M 285.4 100 H 738.6 C 841 100 924 183 924 285.4 V 738.6 C 924 841 841 924 738.6 924 H 285.4 C 183 924 100 841 100 738.6 V 285.4 C 100 183 183 100 285.4 100 Z" fill="url(#bg)"/>
+  <g id="icon">
+    <ellipse cx="392" cy="512" rx="130" ry="300" fill="none" stroke="#56E0FF" stroke-width="60" opacity="0.6" filter="url(#glow)"/>
+    <ellipse cx="392" cy="512" rx="118" ry="286" fill="url(#void)"/>
+    <path d="M 392 226 A 118 286 0 0 0 392 798" fill="none" stroke="url(#ring)" stroke-width="34"/>
+    <g clip-path="url(#out)" filter="url(#sh)">
+      <g transform="rotate(-10 560 512)">
+        <path d="M 330 330 H 640 L 740 430 V 700 C 740 716 728 728 712 728 H 330 Z" fill="url(#paper)"/>
+        <path d="M 640 330 V 404 C 640 418 652 430 666 430 H 740 Z" fill="#C9D3E3"/>
+        <g fill="#A7B4C8"><rect x="430" y="480" width="240" height="22" rx="11"/><rect x="430" y="540" width="200" height="22" rx="11"/><rect x="430" y="600" width="230" height="22" rx="11"/></g>
+      </g>
+    </g>
+    <path d="M 392 226 A 118 286 0 0 1 392 798" fill="none" stroke="url(#ring)" stroke-width="34"/>
+    <g stroke="#9FF7D2" stroke-width="14" stroke-linecap="round" opacity="0.8"><path d="M 780 380 H 850"/><path d="M 800 500 H 880"/><path d="M 780 620 H 840"/></g>
+  </g>
+</svg>
